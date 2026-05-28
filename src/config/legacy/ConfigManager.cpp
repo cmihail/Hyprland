@@ -1955,7 +1955,7 @@ std::optional<std::string> CConfigManager::handleGesture(const std::string& comm
             continue;
         } else if (data[startDataIdx].starts_with("scale:")) {
             try {
-                deltaScale = std::clamp(std::stof(std::string{data[startDataIdx].substr(6)}), 0.1F, 10.F);
+                deltaScale = std::clamp(std::stof(std::string{data[startDataIdx].substr(6)}), -10.F, 10.F);
                 startDataIdx++;
                 continue;
             } catch (...) { return std::format("Invalid delta scale: {}", std::string{data[startDataIdx].substr(6)}); }

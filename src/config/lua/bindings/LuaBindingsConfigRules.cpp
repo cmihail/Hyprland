@@ -800,7 +800,7 @@ static int hlGesture(lua_State* L) {
     float deltaScale = 1.F;
     lua_getfield(L, 1, "scale");
     if (!lua_isnil(L, -1)) {
-        CLuaConfigFloat scaleParser(1.F, 0.1F, 10.F);
+        CLuaConfigFloat scaleParser(1.F, -10.F, 10.F);
         auto            scaleErr = scaleParser.parse(L);
         if (scaleErr.errorCode != PARSE_ERROR_OK) {
             lua_pop(L, 1);
